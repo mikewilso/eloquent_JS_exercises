@@ -1,2 +1,2 @@
 # eloquent_JS_exercises
-Contains my answers to exercises from the book EloqentJS.
+Contains my answers to the exercises from the book EloquentJS.
