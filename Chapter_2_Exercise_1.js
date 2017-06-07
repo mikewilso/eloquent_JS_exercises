@@ -10,4 +10,14 @@ Write a loop that makes seven calls to console.log to output the following trian
 ######
 ####### 
 
-/*
+*/
+
+function printPyramid(char, num){
+	for(var i = 0; i < num; i++){
+		var layer = char.repeat(i + 1);
+		console.log(layer);
+	}
+}
+
+printPyramid("#", 7);
+printPyramid("M", 20);
