@@ -3,4 +3,8 @@ Contains my answers to the exercises from the book EloquentJS.
 
 Chapter 1 -  no exercises
 
-Chapter 2 -  Functions
+Chapter 2 -  Program Structures
+
+Chapter 3 -  Functions
+
+Chapter 4 - 
