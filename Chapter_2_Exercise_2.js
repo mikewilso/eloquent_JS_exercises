@@ -20,7 +20,7 @@ function fizzBuzz(num){
 		else if(i % 3 === 0){
 			console.log(i + " makes Fizz");
 		}
-		else continue;
+		else console.log(i);
 	}
 }
 
