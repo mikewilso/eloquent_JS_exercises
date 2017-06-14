@@ -24,6 +24,7 @@ function countBs(word){
 		else continue;
 	}
 	console.log("Amount of Bs found: " + count);
+	return count;
 }
 
 console.log(countBs("BBC", "b"))
@@ -37,6 +38,7 @@ function countChar(word, char){
 		else continue;
 	}
 	console.log("Amount of " + char + "\'s found: " + count);
+	return count;
 }
 
 countChar("This is an Example sentence", "e");

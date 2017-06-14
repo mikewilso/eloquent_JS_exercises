@@ -6,12 +6,13 @@ Write a function min that takes two arguments and returns their minimum.
 
 function min(a, b){
 	if(a === b){
-		console.log("Numbers are the same.");
+		return a;
 	}
 	else if(a > b){
-		console.log(b + " is the minimum");
+		return b;
 	}
-	else console.log(a + " is the minimum");
+	else 
+		return a;
 }
 
 min(0, 10);
