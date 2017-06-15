@@ -24,4 +24,4 @@ function fizzBuzz(num){
 	}
 }
 
-fizzBuzz(100);
+fizzBuzz(101);
