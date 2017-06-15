@@ -22,7 +22,8 @@ function isEven(num){
 	else if(num === 0){
 		return true;
 	}
-	return isEven(num - 2);
+	else
+		return isEven(num - 2);
 }
 
 isEven(11);

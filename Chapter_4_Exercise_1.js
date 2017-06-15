@@ -1,5 +1,5 @@
 /*
-Chapter 4, Exercise 1
+Chapter 4, Exercise 1: The Sum of a Range
 
 Write a range function that takes two arguments, start and end, and returns an array 
 containing all the numbers from start up to (and including) end.
@@ -24,7 +24,7 @@ function rangeToArray(start, end){
 	return newNumArray;
 }
 
-rangeToArray(1, 10);
+rangeToArray(1, 10); 
 
 
 //Add integer values in an array

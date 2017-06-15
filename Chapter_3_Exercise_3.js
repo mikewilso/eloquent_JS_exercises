@@ -15,6 +15,7 @@ indicates the character that is to be counted (rather than counting only upperca
 Rewrite countBs to make use of this new function.
 */
 
+//finds both UpperCase and LowerCase B's
 function countBs(word){
 	var count = 0;
 	for(var i = 0; i < word.length; i++){
@@ -29,6 +30,7 @@ function countBs(word){
 
 console.log(countBs("BBC", "b"))
 
+//Although not specified in the instructions, countChar finds both UpperCase and LowerCase of the char param
 function countChar(word, char){
 	var count = 0;
 	for(var i = 0; i < word.length; i++){

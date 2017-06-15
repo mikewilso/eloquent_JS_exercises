@@ -17,3 +17,11 @@ function min(a, b){
 
 min(0, 10);
 min(43, 12);
+
+//more succint version that does not check for param equality, but works just the same
+function min(a, b){
+	if(a > b)
+		return b;
+	else
+		return a;
+}

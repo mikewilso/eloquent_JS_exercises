@@ -68,7 +68,7 @@ function printChessBoardPlus(width, height){
 printChessBoardPlus(7, 10);
 
 
-//Version that uses nested loops and returns a single string using new line characters instead of separate console logs as per the instructions
+//This version uses nested loops and returns a single string using new line characters instead of separate console logs, as per the instructions
 function chessBoardString(size){
 	var chessBoard = "";
 	for(var i = 0; i < size; i++){
@@ -85,7 +85,7 @@ function chessBoardString(size){
 
 chessBoardString(8);
 
-//Nested loop and new line version with width and height parameters
+//Nested loop version with width and height params
 function chessBoardStringPlus(width, height){
 	var chessBoard = "";
 	for(var i = 0; i < height; i++){
