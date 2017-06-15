@@ -20,4 +20,3 @@ function printPyramid(char, num){
 }
 
 printPyramid("#", 7);
-printPyramid("M", 20);
