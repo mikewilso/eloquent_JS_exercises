@@ -1,22 +1,25 @@
 /*
-Chapter 5, Exercise 2
+Chapter 5, Exercise 3
+When we looked up all the people in our data set that lived more than 90 years, 
+only the latest generation in the data came out. 
 
-Using the example data set from this chapter, compute the average age difference between mothers and children 
-(the age of the mother when the child is born). You can use the average function defined earlier in this chapter.
+Let’s take a closer look at that phenomenon.
 
-Note that not all the mothers mentioned in the data are themselves present in the array. The byName object, 
-which makes it easy to find a person’s object from their name, might be useful here.
+Compute and output the average age of the people in the ancestry data set per century. 
+A person is assigned to a century by taking their year of death, dividing it by 100, 
+and rounding it up, as in Math.ceil(person.died / 100).
+
 */
 
-// Steps:
-// 1. Filter out the people w/no recorded mother
-// 2. Convert object to name based entries using byName
-// 3. forEach, if mother is found, mother.born - child.born, add difference to array
-// 4. Pass array through the average helper function.
-
-function average(arr) {
-  function plus(a, b) { return a + b; }
-  return arr.reduce(plus) / arr.length;
+//Steps
+//1. Sort people into centennial groups
+//2. Get their ages in each group
+//3. Find the average for each group
+function average(array) {
+  function plus(a, b) { 
+  	return a + b; 
+  }
+  return array.reduce(plus) / array.length;
 }
 
 function makeObjByName(obj){
@@ -27,32 +30,34 @@ function makeObjByName(obj){
 	return byName;
 }
 
-function hasKnownMother(arr){
-	return arr.filter(function(person){
-		return person.mother != null;
-	});
-}
-
-function removeMomlessAndMakeByName(arr){
-	return arr = makeObjByName(hasKnownMother(arr));
-}
-
-function findAgeDiffs(obj){
-	var ageDiffArray = [];
-	var referenceSet = makeObjByName(ancestry);
-	for(person in obj){
-		if(obj[person].mother in referenceSet){
-			ageDiffArray.push(obj[person].born - referenceSet[obj[person].mother].born);
+function sortByCentury(arr){
+	var sortedByCentury = {};
+	var referenceSet = makeObjByName(arr);
+	arr.forEach(function(person){
+		var century = Math.ceil(person.died/100);
+		if(sortedByCentury[century] != undefined){
+			sortedByCentury[century].push(person);
 		}
-	}
-	console.log(ageDiffArray);
-	return ageDiffArray;
-}
-function averageMothersAge(data){
-	return average(findAgeDiffs(removeMomlessAndMakeByName(data)));
+		else {
+			sortedByCentury[century] = [];
+			sortedByCentury[century].push(person);
+		}
+	});
+
+	return sortedByCentury;
 }
 
-averageMothersAge(ancestry);
+function averageAgeByCentury(obj){
+	console.log(typeof obj);
+}
+
+averageAgeByCentury(sortByCentury(ancestry));
+
+
+look at the death year, find century through year/100 math ceiling.
+check to see if that key exists, if not, create it, if so, append it.
+
+
 
 
 //DATA SET
@@ -97,8 +102,3 @@ var ancestry = [
   {"name": "Maria Sturm", "sex": "f", "born": 1835, "died": 1917, "father": "Charles Sturm", "mother": "Seraphina Spelier"},
   {"name": "Jacobus Bernardus van Brussel", "sex": "m", "born": 1736, "died": 1809, "father": "Jan van Brussel", "mother": "Elisabeth Haverbeke"}
 ];
-
-// This makes sure the data is exported in node.js —
-// `require("./path/to/ancestry.js")` will get you the array.
-// if (typeof module != "undefined" && module.exports)
-//   module.exports = ANCESTRY_FILE;
