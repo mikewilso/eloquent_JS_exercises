@@ -12,48 +12,6 @@ and rounding it up, as in Math.ceil(person.died / 100).
 
 */
 
-
-function average(array) {
-  function plus(a, b) { 
-  	return a + b; 
-  }
-  return array.reduce(plus) / array.length;
-}
-
-function sortByCentury(arr){
-	var sortedByCentury = {};
-	arr.forEach(function(person){
-		var century = Math.ceil(person.died/100);
-		if(sortedByCentury[century] != undefined){
-			sortedByCentury[century].push(person);
-		}
-		else {
-			sortedByCentury[century] = [];
-			sortedByCentury[century].push(person);
-		}
-	});
-	return sortedByCentury;
-}
-
-function getAge(arr){
-    var ageArray = [];
-    arr.forEach(function(person){
-        ageArray.push(person.died - person.born)
-    });
-    return ageArray;
-}
-
-function averageAgeByCentury(obj){
-    var averagedAges = {};
-    for(var key in obj){
-        averagedAges[key] = average(getAge(obj[key]));
-    };
-    return averagedAges;
-}
-
-
-averageAgeByCentury(sortByCentury(ancestry));
-
 //DATA SET
 var ancestry = [
   {"name": "Carolus Haverbeke", "sex": "m", "born": 1832, "died": 1905, "father": "Carel Haverbeke", "mother": "Maria van Brussel"},
@@ -96,3 +54,45 @@ var ancestry = [
   {"name": "Maria Sturm", "sex": "f", "born": 1835, "died": 1917, "father": "Charles Sturm", "mother": "Seraphina Spelier"},
   {"name": "Jacobus Bernardus van Brussel", "sex": "m", "born": 1736, "died": 1809, "father": "Jan van Brussel", "mother": "Elisabeth Haverbeke"}
 ];
+
+function average(array) {
+  function plus(a, b) { 
+  	return a + b; 
+  }
+  return array.reduce(plus) / array.length;
+}
+
+function sortByCentury(arr){
+	var sortedByCentury = {};
+	arr.forEach(function(person){
+		var century = Math.ceil(person.died/100);
+		if(sortedByCentury[century] != undefined){
+			sortedByCentury[century].push(person);
+		}
+		else {
+			sortedByCentury[century] = [];
+			sortedByCentury[century].push(person);
+		}
+	});
+	return sortedByCentury;
+}
+
+function getAge(arr){
+    var ageArray = [];
+    arr.forEach(function(person){
+        ageArray.push(person.died - person.born)
+    });
+    return ageArray;
+}
+
+function averageAgeByCentury(obj){
+    var averagedAges = {};
+    for(var key in obj){
+        averagedAges[key] = average(getAge(obj[key]));
+    };
+    return averagedAges;
+}
+
+
+console.log(averageAgeByCentury(sortByCentury(ancestry)));
+
