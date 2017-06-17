@@ -20,14 +20,6 @@ function average(array) {
   return array.reduce(plus) / array.length;
 }
 
-function makeObjByName(obj){
-	var byName = {};
-	obj.forEach(function(person) {
-	  byName[person.name] = person;
-	});
-	return byName;
-}
-
 function sortByCentury(arr){
 	var sortedByCentury = {};
 	arr.forEach(function(person){
@@ -40,7 +32,6 @@ function sortByCentury(arr){
 			sortedByCentury[century].push(person);
 		}
 	});
-
 	return sortedByCentury;
 }
 
