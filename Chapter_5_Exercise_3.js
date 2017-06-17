@@ -1,5 +1,6 @@
 /*
-Chapter 5, Exercise 3
+Chapter 5, Exercise 3: Historical Life Expectancy
+
 When we looked up all the people in our data set that lived more than 90 years, 
 only the latest generation in the data came out. 
 
@@ -11,10 +12,7 @@ and rounding it up, as in Math.ceil(person.died / 100).
 
 */
 
-//Steps
-//1. Sort people into centennial groups
-//2. Get their ages in each group
-//3. Find the average for each group
+
 function average(array) {
   function plus(a, b) { 
   	return a + b; 
@@ -32,7 +30,6 @@ function makeObjByName(obj){
 
 function sortByCentury(arr){
 	var sortedByCentury = {};
-	var referenceSet = makeObjByName(arr);
 	arr.forEach(function(person){
 		var century = Math.ceil(person.died/100);
 		if(sortedByCentury[century] != undefined){
@@ -47,18 +44,24 @@ function sortByCentury(arr){
 	return sortedByCentury;
 }
 
-function averageAgeByCentury(obj){
-	console.log(typeof obj);
+function getAge(arr){
+    var ageArray = [];
+    arr.forEach(function(person){
+        ageArray.push(person.died - person.born)
+    });
+    return ageArray;
 }
 
+function averageAgeByCentury(obj){
+    var averagedAges = {};
+    for(var key in obj){
+        averagedAges[key] = average(getAge(obj[key]));
+    };
+    return averagedAges;
+}
+
+
 averageAgeByCentury(sortByCentury(ancestry));
-
-
-look at the death year, find century through year/100 math ceiling.
-check to see if that key exists, if not, create it, if so, append it.
-
-
-
 
 //DATA SET
 var ancestry = [

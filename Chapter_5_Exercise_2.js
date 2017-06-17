@@ -1,5 +1,5 @@
 /*
-Chapter 5, Exercise 2
+Chapter 5, Exercise 2: Mother-Child Age Difference
 
 Using the example data set from this chapter, compute the average age difference between mothers and children 
 (the age of the mother when the child is born). You can use the average function defined earlier in this chapter.
@@ -8,11 +8,6 @@ Note that not all the mothers mentioned in the data are themselves present in th
 which makes it easy to find a person’s object from their name, might be useful here.
 */
 
-// Steps:
-// 1. Filter out the people w/no recorded mother
-// 2. Convert object to name based entries using byName
-// 3. forEach, if mother is found, mother.born - child.born, add difference to array
-// 4. Pass array through the average helper function.
 
 function average(arr) {
   function plus(a, b) { return a + b; }
