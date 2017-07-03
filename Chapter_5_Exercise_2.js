@@ -86,7 +86,7 @@ function findAgeDiffs(obj){
 	return ageDiffArray;
 }
 function averageMothersAge(data){
-	return average(findAgeDiffs(removeMomlessAndMakeByName(data)));
+	return average(findAgeDiffs(removeMomlessAndMakeByName(data));
 }
 
 console.log(averageMothersAge(ancestry));

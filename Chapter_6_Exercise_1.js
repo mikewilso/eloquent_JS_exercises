@@ -13,8 +13,8 @@ the distance of the point (x, y) from the origin (0, 0).
 */
 
 var Vector = function(x, y){
-	this.x = x,
-	this.y = y,
+	this.x : x,
+	this.y : y,
 	get vLength(){
 		return Math.sqrt((this.x * this.x) + (this.y * this.y));
 	}
