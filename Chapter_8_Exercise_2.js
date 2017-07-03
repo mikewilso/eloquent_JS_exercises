@@ -26,7 +26,17 @@ normally or threw an exception.
 */
 
 function withBoxUnlocked(body) {
-  // Your code here.
+  var locked = box.locked;
+  if(!locked)
+    return body();
+
+  box.unlock();
+  try{
+    return body();
+  }
+  finally{
+    box.lock();
+  }
 }
 
 withBoxUnlocked(function() {
@@ -42,3 +52,10 @@ try {
 }
 console.log(box.locked);
 // → true
+console.log(box);
+/*  → { locked: true,
+  unlock: [Function],
+  lock: [Function],
+  _content: [ 'gold piece' ],
+  content: [Getter] }
+*/
